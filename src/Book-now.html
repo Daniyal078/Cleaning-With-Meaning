@@ -1,0 +1,701 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+</head>
+
+<style>
+    .date-label input[type='radio']:checked:before {
+        content: "✅";
+        z-index: 1;
+        visibility: visible;
+        font-size: 21px;
+        position: absolute;
+        left: -10px;
+        top: -15px;
+    }
+
+    .date-label input[type='radio']:checked+div {
+        border: 2px solid;
+        border-color: #00CCCC;
+        color: #00CCCC;
+        font-weight: 600;
+    }
+
+    .image-checkboxes :checked+label {
+        background-color: #000;
+    }
+
+
+    .datepicker-container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #datepicker {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Custom styles for jQuery UI datepicker */
+    .ui-datepicker {
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .ui-datepicker-calendar {
+        width: 100%;
+    }
+
+    .ui-datepicker-header {
+        background: #17a2b8;
+        color: white;
+        border-radius: 8px 8px 0 0;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .ui-datepicker-calendar tbody td {
+        padding: 8px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .ui-datepicker-today a {
+        background: #17a2b8 !important;
+        color: white !important;
+        border-radius: 50%;
+    }
+
+    .ui-datepicker-unselectable {
+        color: #ccc;
+    }
+
+
+
+
+
+
+
+
+    .range-container {
+        position: relative;
+    }
+
+    input[type="range"] {
+        -webkit-appearance: none;
+        margin: 18px 0;
+        width: 100%;
+    }
+
+    input[type="range"]:focus {
+        outline: none;
+    }
+
+    input[type="range"]+label {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        left: 20px;
+        padding: 5px 10px;
+        position: absolute;
+        text-align: center;
+        top: -25px;
+        /* width: 80px; */
+    }
+
+    /* Chrome & Safari */
+    input[type="range"]::-webkit-slider-runnable-track {
+        background: #00cccc9c;
+        border-radius: 4px;
+        cursor: pointer;
+        height: 10px;
+        width: 100%;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        background: #fff;
+        border: 1px solid #00cccc9c;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 24px;
+        margin-top: -7px;
+        width: 24px;
+    }
+
+    /* Firefox */
+    input[type="range"]::-moz-range-track {
+        background: purple;
+        border-radius: 4px;
+        cursor: pointer;
+        height: 13px;
+        width: 100%;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        -webkit-appearance: none;
+        background: #fff;
+        border: 1px solid purple;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 24px;
+        margin-top: -7px;
+        width: 24px;
+    }
+
+    /* IE */
+    input[type="range"]::-ms-track {
+        background: purple;
+        border-radius: 4px;
+        cursor: pointer;
+        height: 13px;
+        width: 100%;
+    }
+
+    input[type="range"]::-ms-thumb {
+        -webkit-appearance: none;
+        background: #fff;
+        border: 1px solid purple;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 24px;
+        margin-top: -7px;
+        width: 24px;
+    }
+</style>
+
+<body class="min-w-[360px] font-sans">
+
+    <nav>
+        <div class="container mx-auto px-6 py-3">
+            <div class="grid grid-flow-col justify-between items-center">
+                <div>
+                    <a href="index.html">
+                        <img class="w-[170px]" src="accets/images/logo.png" alt="">
+                    </a>
+                </div>
+                <div>
+                    <ul class="lg:flex hidden justify-center xl:gap-12 lg:gap-6">
+                        <li class="font-medium text-xl hover:text-[#0095c4]"><a href="">Services</a></li>
+                        <li class="font-medium text-xl hover:text-[#0095c4]"><a href="">About</a></li>
+                        <li class="font-medium text-xl hover:text-[#0095c4]"><a href="">Blog</a></li>
+                        <li class="font-medium text-xl hover:text-[#0095c4]"><a href="">Jobs</a></li>
+                        <li class="font-medium text-xl hover:text-[#0095c4]"><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="lg:flex gap-3 hidden">
+                    <button
+                        class="bg-gradient-to-r from-[#0095c4] to-[#009867] hover:from-[#009867] hover:to-[#0095c4] text-white rounded-full lg:px-7 lg:py-3"><i
+                            class="ri-whatsapp-line"></i> WhatsApp</button>
+                    <button
+                        class="bg-gradient-to-r from-[#0095c4] to-[#009867] hover:from-[#009867] hover:to-[#0095c4] text-white rounded-full lg:px-7 lg:py-3"><i
+                            class="ri-calendar-line"></i> Get Started</button>
+                </div>
+
+                <i class="lg:hidden ri-menu-line bg-[#009867] text-white px-3 py-2 text-2xl rounded-md"></i>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="py-16">
+        <div class="container mx-auto p-10 bg-slate-100">
+            <div class="grid md:grid-cols-6 gap-5">
+                <div class="md:col-span-4 space-y-1">
+                    <div class="bg-white p-9 rounded">
+                        <div class="text-3xl mb-3">Get a Free Home Cleaning Estimate!</div>
+                        <p class="text-slate-400">Book a Cleaning for Your Home in Less than 60 Seconds</p>
+                        <p class="text-slate-500">We can’t wait to help you get your time back! First, we’ll get a bit
+                            of information about
+                            your home so we can best estimate the time it will take to clean it properly. Please fill
+                            out the form below and we will be in contact within 48 hours to go over the estimated time
+                            and price to get your home sparkling clean. A lot of times our estimates can go to spam or
+                            junk so make sure to check there if you are not seeing it within 48 hours. Additionally, we
+                            kindly ask if you have the necessary cleaning equipment, such as a vacuum cleaner, bucket,
+                            and mop, as we do not provide these items. For your convenience, we can provide cleaning
+                            products for an additional fee of 20 euros. We are looking forward to help you.</p>
+                    </div>
+
+                    <div class="bg-white space-y-4 p-9 rounded">
+                        <div class="space-y-1">
+                            <label class="text-slate-500" for="">* Name</label>
+                            <input class="outline-none border w-full p-2" placeholder="Enter your name" type="text">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-slate-500" for="">* Email</label>
+                            <input class="outline-none border w-full p-2" placeholder="Enter your email" type="text">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-slate-500" for="">Phone Number</label>
+                            <input class="outline-none border w-full p-2" placeholder="Enter your phone number"
+                                type="text">
+                        </div>
+
+                        <div class="text-slate-500">Service Address</div>
+                        <div class="space-y-1">
+                            <label class="text-slate-500" for="">Address Line 1</label>
+                            <input class="outline-none border w-full p-2" placeholder="Street 1" type="text">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-slate-500" for="">Address Line 2</label>
+                            <input class="outline-none border w-full p-2" placeholder="Street 2" type="text">
+                        </div>
+
+                        <div class="grid md:grid-cols-3 gap-3">
+                            <div class="space-y-1">
+                                <label class="text-slate-500" for="">City / Town</label>
+                                <input class="outline-none border w-full p-2" placeholder="City" type="text">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-slate-500" for="">State / Region</label>
+                                <input class="outline-none border w-full p-2" placeholder="State" type="text">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-slate-500" for="">ZIP / Postal code</label>
+                                <input class="outline-none border w-full p-2" placeholder="ZIP / Postal code"
+                                    type="text">
+                            </div>
+                        </div>
+
+                        <div class="text-lg font-medium text-slate-400">Pick a date and time for the appointment</div>
+
+
+                        <div class="datepicker-container">
+                            <!-- <label for="datepicker">Pick a date and time for the appointment</label> -->
+                            <input type="text" id="datepicker" placeholder="Pick a date">
+                        </div>
+
+                        <ol>
+                            <li class="" data-intercept="0" data-slope="0">
+                                <label class="relative date-label">
+                                    <input class="invisible absolute left-0" type="radio" name="time-option"
+                                        data-price="" data-price-factor="">
+                                    <div
+                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                        First available</div>
+                                </label>
+                            </li>
+                        </ol>
+
+                        <div class="text-lg font-medium text-slate-400">When was the property last professionally
+                            cleaned?</div>
+                        <ol class="space-y-2">
+                            <li class="" data-intercept="0" data-slope="0">
+                                <label class="relative date-label">
+                                    <input class="invisible absolute left-0" type="radio" name="professionally-clean"
+                                        data-price="" data-price-factor="">
+                                    <div
+                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                        A few days ago</div>
+                                </label>
+                            </li>
+                            <li class="" data-intercept="0" data-slope="0">
+                                <label class="relative date-label">
+                                    <input class="invisible absolute left-0" type="radio" name="professionally-clean"
+                                        data-price="" data-price-factor="">
+                                    <div
+                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                        Less than a month ago</div>
+                                </label>
+                            </li>
+                            <li class="" data-intercept="0" data-slope="0">
+                                <label class="relative date-label">
+                                    <input class="invisible absolute left-0" type="radio" name="professionally-clean"
+                                        data-price="" data-price-factor="">
+                                    <div
+                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                        Less than 3 months ago</div>
+                                </label>
+                            </li>
+                            <li class="" data-intercept="0" data-slope="0">
+                                <label class="relative date-label">
+                                    <input class="invisible absolute left-0" type="radio" name="professionally-clean"
+                                        data-price="" data-price-factor="">
+                                    <div
+                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                        Less than 6 months ago</div>
+                                </label>
+                            </li>
+                            <li class="" data-intercept="0" data-slope="0">
+                                <label class="relative date-label">
+                                    <input class="invisible absolute left-0" type="radio" name="professionally-clean"
+                                        data-price="" data-price-factor="">
+                                    <div
+                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                        More than 6 months ago or never</div>
+                                </label>
+                            </li>
+                        </ol>
+
+
+                        <h2>How large is the property?</h2>
+                        <div class="range-container">
+                            <input type="range" value="100" id="property" min="0" max="1000" />
+                            <label for="range">about 30 sqm</label>
+
+                            <div class="flex justify-between text-slate-500">
+                                <div>30</div>
+                                <div>100</div>
+                                <div>200</div>
+                                <div>400</div>
+                                <div>1000</div>
+                            </div>
+                        </div>
+
+                        <h2>How many bedrooms should be cleaned?</h2>
+                        <div class="range-container">
+                            <input type="range" value="100" id="bedrooms" min="0" max="1000" />
+                            <label for="range">about 30 sqm</label>
+
+                            <div class="flex justify-between text-slate-500">
+                                <div>30</div>
+                                <div>100</div>
+                                <div>200</div>
+                                <div>400</div>
+                                <div>1000</div>
+                            </div>
+                        </div>
+
+
+                        <h2>How many bathrooms should be cleaned?</h2>
+                        <div class="range-container">
+                            <input type="range" value="100" id="bathrooms " min="0" max="1000" />
+                            <label for="range">about 30 sqm</label>
+
+                            <div class="flex justify-between text-slate-500">
+                                <div>30</div>
+                                <div>100</div>
+                                <div>200</div>
+                                <div>400</div>
+                                <div>1000</div>
+                            </div>
+                        </div>
+
+                        <div>Count bathrooms with only a toilet and sink as a half bathroom</div>
+
+
+                        <div class="text-lg font-medium text-slate-400">Choose your cleaning schedule</div>
+                        <ol class="flex flex-wrap items-center gap-3">
+                            <li class="" data-intercept="0" data-slope="0">
+                                <label class="relative date-label">
+                                    <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
+                                        data-price="" data-price-factor="">
+                                    <div
+                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                        one time</div>
+                                </label>
+                            </li>
+                            <li class="" data-intercept="0" data-slope="0">
+                                <label class="relative date-label">
+                                    <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
+                                        data-price="" data-price-factor="">
+                                    <div
+                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+
+                                        weekly</div>
+                                </label>
+                            </li>
+                            <li class="" data-intercept="0" data-slope="0">
+                                <label class="relative date-label">
+                                    <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
+                                        data-price="" data-price-factor="">
+                                    <div
+                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                        every 2 weeks
+                                    </div>
+                                </label>
+                            </li>
+                            <li class="" data-intercept="0" data-slope="0">
+                                <label class="relative date-label">
+                                    <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
+                                        data-price="" data-price-factor="">
+                                    <div
+                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                        every 3 weeks</div>
+                                </label>
+                            </li>
+                        </ol>
+
+
+
+                        <h2>How many man hours would you like to book?</h2>
+                        <div class="range-container">
+                            <input type="range" value="100" id="bathrooms " min="0" max="1000" />
+                            <label for="range">about 30 sqm</label>
+
+                            <div class="flex justify-between text-slate-500">
+                                <div>30</div>
+                                <div>100</div>
+                                <div>200</div>
+                                <div>400</div>
+                                <div>1000</div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="text-2xl font-medium">Service Options and Pricing Details</div>
+                        <p class="text-slate-500">WE KINDLY INFORM YOU THAT THE LISTED PRICE IS FOR OUR STANDARD
+                            CLEANING SERVICE. IF YOU
+                            REQUIRE ADDITIONAL SERVICES SUCH AS DEEP CLEANING OR MOVE-IN/OUT CLEANING, PLEASE SELECT THE
+                            APPROPRIATE EXTRA SERVICES AND SPECIFY THE TYPE OF CLEANING NEEDED BELOW.
+                        </p>
+
+
+                        <div>Pick additional services below</div>
+
+
+
+                        <ul class="flex flex-wrap gap-10">
+                            <li class="image-checkboxes">
+                                <input class="hidden" type="checkbox" name="booking" id="extra-cb-94354" value="94354"
+                                    data-price="3000" data-price-factor="1">
+                                <label for="extra-cb-94354"><img
+                                        src="accets/images/instruction_icon_inside_cabinets-f894dc683b116b573e11f68033cd9b58b623d0bf5f1749b407cd4218f8c21562.png"></label>
+                                <div>
+                                    <div>Inside cabinets ( up to 6 doors )</div>
+                                    <div>€30,0.0</div>
+                                </div>
+                            </li>
+                            <li>
+                                <input class="hidden" type="checkbox" name="booking" id="extra-cb-94354" value="94354"
+                                    data-price="3000" data-price-factor="1">
+                                <label for="extra-cb-94354"><img
+                                        src="accets/images/instruction_icon_window_cleaning-980e62295635b02058105e2a39c3760c567df0eb67cccf444a5b75ecf760203a.png"></label>
+                                <div>
+                                    <div>
+                                        Inside cabinets ( up to 6 doors ) €30,0.0
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <input class="hidden" type="checkbox" name="booking" id="extra-cb-94354" value="94354"
+                                    data-price="3000" data-price-factor="1">
+                                <label for="extra-cb-94354"><img
+                                        src="accets/images/instruction_icon_ironing-d3826dd502df283ab4d34e4dee65fc818bc22d4132a067838eb116502049eec3.png"></label>
+                                <div>
+                                    <div>
+                                        Inside cabinets ( up to 6 doors ) €30,0.0
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+
+                        <label for="">Do you have any further special requests?</label>
+                        <textarea class="outline-none border w-full p-2" rows="4" name="" id=""></textarea>
+
+
+                        <label for="">What areas of your home brings you the most stress? What is your decorating style-
+                            minimalist or more of a collector?
+                        </label>
+                        <textarea class="outline-none border w-full p-2" rows="4" name="" id=""></textarea>
+
+                        <button
+                            class="bg-gradient-to-r from-[#0095c4] to-[#009867] hover:from-[#009867] hover:to-[#0095c4] text-white uppercase w-full rounded lg:px-7 lg:py-3">Book
+                            now</button>
+
+                    </div>
+                </div>
+                <div class="md:col-span-2 lg:px-8 space-y-5">
+                    <div>
+                        <div class="text-center space-y-2 p-6 bg-white">
+                            <i class="ri-home-8-fill text-4xl text-blue-400"></i>
+                            <div class="text-xl">REQUEST A QUOTE</div>
+                            <p class="text-slate-400 ">Take 60 seconds to tell us about <br> yourself and your home.</p>
+                        </div>
+
+                        <div class="text-center space-y-2 p-6 bg-white">
+                            <i class="ri-calendar-fill text-4xl text-blue-400"></i>
+                            <div class="text-xl">CONFIRM YOUR <br> APPOINTMENT</div>
+                            <p class="text-slate-400 ">Cleaning with Meaning will contact you by email with your
+                                estimate
+                                information.</p>
+                        </div>
+
+                        <div class="text-center space-y-2 p-6 bg-white">
+                            <i class="ri-shake-hands-fill text-4xl text-blue-400"></i>
+                            <div class="text-xl">RELAX & LET US DO THE <br> CLEANING!</div>
+                            <p class="text-slate-400 ">Cleaning With Meaning helps you live smarter, giving you time to
+                                focus on what's most important</p>
+                        </div>
+
+
+                    </div>
+
+                    <div class="bg-white p-6 space-y-3 sticky top-[10PX]">
+                        <div class="text-lg">Your Cleaning Summary</div>
+                        <div class="text-slate-500">Service Details</div>
+                        <p class="text-slate-400"><i class="ri-brush-fill text-blue-400"></i> 1 Bedrooms 1 Bathrooms,
+                            120 Square Meters, 3 Man Hours</p>
+
+                        <div class="text-lg">Price Estimate</div>
+
+                        <div class="flex justify-between">
+                            <div class="text-slate-400">Service:</div>
+                            <div class="font-semibold text-slate-700">€84,00</div>
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="text-slate-400">Total:</div>
+                            <div class="font-semibold text-slate-700">€84,00</div>
+                        </div>
+
+                        <button
+                            class="bg-gradient-to-r from-[#0095c4] to-[#009867] hover:from-[#009867] hover:to-[#0095c4] text-white uppercase w-full rounded lg:px-7 lg:py-3">Book
+                            now</button>
+
+                        <p class="text-slate-500 text-center">By clicking on "Book Now" you agree to our Terms of
+                            Service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="bg-black text-white">
+        <div class="container px-6 block mx-auto py-12">
+            <div class="grid lg:grid-cols-4 lg:gap-0 sm:grid-cols-3 grid-cols-1 gap-5">
+                <div class="">
+                    <img class="w-24" src="accets/images/logo.png" alt="">
+                    <div class="my-4">We are Cleaning With Meaning, your trusted partner in clean living.</div>
+                    <div class="my-4">KvK: 75748746</div>
+                </div>
+                <div>
+                    <ul class="space-y-2">
+                        <li><a class="text-lg font-medium" href="#">Navigation</a></li>
+                        <li><a class="text-sm" href="#">About</a></li>
+                        <li><a class="text-sm" href="#">Blog</a></li>
+                        <li><a class="text-sm" href="#">Services</a></li>
+                        <li><a class="text-sm" href="#">Contact</a></li>
+                        <li><a class="text-sm" href="#">Jobs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="space-y-2">
+                        <li><a class="text-lg font-medium" href="#">Social Media</a></li>
+                        <li><a class="text-sm" href="#"> <i class="ri-linkedin-box-fill"></i> Women</a></li>
+                        <li><a class="text-sm" href="#"> <i class="ri-instagram-line"></i> Men</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="space-y-2">
+                        <li><a class="text-lg font-medium" href="#">Business Hours</a></li>
+                        <li><a class="text-sm" href="#"><i class="text-2xl ri-time-line"></i> 8:00 AM – 20:00 AM 6 Days
+                                a Week</a></li>
+                        <li><a class="text-sm" href="#"><i class="text-2xl ri-phone-line"></i> +31631680930</a></li>
+                        <li><a class="text-sm" href="#"><i class="text-2xl ri-mail-line"></i>
+                                nanda@cleaningwithmeaning.nl</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white py-3">
+            <div class="container px-6 block mx-auto">
+                <div class="text-gray-700 col-span-3 text-center">
+                    Copyright © 2025 – Cleaning with Meaning. All rights reserved. Made with 💖 by MJ Studios.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $("#datepicker").datepicker({
+                dateFormat: "MM dd, yy",
+                minDate: 0,
+                beforeShowDay: function (date) {
+                    let day = date.getDay();
+                    return [day !== 0, ""]; // Disable Sundays
+                },
+            }).datepicker("show");;
+        });
+
+        const property = document.querySelector("#property");
+
+        property.addEventListener("input", (e) => {
+            const value = +e.target.value;
+            const label = e.target.nextElementSibling;
+
+            const rangeWidth = getComputedStyle(e.target).getPropertyValue("width");
+            const labelWidth = getComputedStyle(label).getPropertyValue("width");
+            const numRangeWidth = +rangeWidth.slice(0, rangeWidth.length - 2);
+            const numLabelWidth = +labelWidth.slice(0, labelWidth.length - 2);
+
+            const max = +e.target.max;
+
+            const left = value * (numRangeWidth / max) - numLabelWidth / 2;
+
+            label.style.left = `${left}px`;
+            label.innerText = `about ${value} sqm`;
+        });
+
+
+
+        const bedrooms = document.querySelector("#bedrooms");
+
+        bedrooms.addEventListener("input", (e) => {
+            const value = +e.target.value;
+            const label = e.target.nextElementSibling;
+
+            const rangeWidth = getComputedStyle(e.target).getPropertyValue("width");
+            const labelWidth = getComputedStyle(label).getPropertyValue("width");
+            const numRangeWidth = +rangeWidth.slice(0, rangeWidth.length - 2);
+            const numLabelWidth = +labelWidth.slice(0, labelWidth.length - 2);
+
+            const max = +e.target.max;
+
+            const left = value * (numRangeWidth / max) - numLabelWidth / 2;
+
+            label.style.left = `${left}px`;
+            label.innerText = `about ${value} sqm`;
+        });
+
+
+        const bathrooms = document.querySelector("#bathrooms");
+
+        bathrooms.addEventListener("input", (e) => {
+            const value = +e.target.value;
+            const label = e.target.nextElementSibling;
+
+            const rangeWidth = getComputedStyle(e.target).getPropertyValue("width");
+            const labelWidth = getComputedStyle(label).getPropertyValue("width");
+            const numRangeWidth = +rangeWidth.slice(0, rangeWidth.length - 2);
+            const numLabelWidth = +labelWidth.slice(0, labelWidth.length - 2);
+
+            const max = +e.target.max;
+
+            const left = value * (numRangeWidth / max) - numLabelWidth / 2;
+
+            label.style.left = `${left}px`;
+            label.innerText = `about ${value} sqm`;
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>
