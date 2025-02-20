@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
         integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 </head>
 
@@ -31,8 +31,22 @@
         font-weight: 600;
     }
 
-    .image-checkboxes :checked+label {
-        background-color: #000;
+    .image-checkboxes :checked+label .additional-services {
+        border: 1px solid 1px solid #b7b7b7;
+        background-color: #e7e7e7;
+        border-radius: 10px;
+        position: relative;
+        padding: 10px;
+    }
+
+    .image-checkboxes :checked+label .additional-services::before {
+        content: "✅";
+        z-index: 1;
+        visibility: visible;
+        font-size: 21px;
+        position: absolute;
+        left: -10px;
+        top: -15px;
     }
 
 
@@ -113,6 +127,7 @@
         border-radius: 4px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         left: 20px;
+        text-wrap: nowrap;
         padding: 5px 10px;
         position: absolute;
         text-align: center;
@@ -138,6 +153,54 @@
         height: 24px;
         margin-top: -7px;
         width: 24px;
+    }
+
+    #property::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 40px;
+        height: 40px;
+        padding: 0px;
+        border: 1px solid #a7e6e6;
+        border-radius: 50%;
+        background-image: url('accets/images/icon-1223.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        margin-top: -13px;
+    }
+
+    #bedrooms::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 40px;
+        height: 40px;
+        padding: 20px;
+        border: 1px solid #a7e6e6;
+        border-radius: 50%;
+        background-image: url('accets/images/bedrooms_icon-e62e370543960d1473eacbf70a18945ad60c69679178fd8f7e5149878d8e836a.svg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        margin-top: -13px;
+    }
+
+    #bathrooms::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 40px;
+        height: 40px;
+        padding: 20px;
+        border: 1px solid #a7e6e6;
+        border-radius: 50%;
+        background-image: url('accets/images/bathrooms_icon-f9629910bc62c9302a0bf70438bb97bac1441774a88a6294fa4ae5b27086834e.svg');
+        background-size: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        margin-top: -13px;
     }
 
     /* Firefox */
@@ -206,7 +269,7 @@
                             class="ri-whatsapp-line"></i> WhatsApp</button>
                     <button
                         class="bg-gradient-to-r from-[#0095c4] to-[#009867] hover:from-[#009867] hover:to-[#0095c4] text-white rounded-full lg:px-7 lg:py-3"><i
-                            class="ri-calendar-line"></i> Get Started</button>
+                            class="ri-calendar-line"></i>Boek nu</button>
                 </div>
 
                 <i class="lg:hidden ri-menu-line bg-[#009867] text-white px-3 py-2 text-2xl rounded-md"></i>
@@ -222,7 +285,7 @@
                     <div class="bg-white p-9 rounded">
                         <div class="text-3xl mb-3">Get a Free Home Cleaning Estimate!</div>
                         <p class="text-slate-400">Book a Cleaning for Your Home in Less than 60 Seconds</p>
-                        <p class="text-slate-500">We can’t wait to help you get your time back! First, we’ll get a bit
+                        <p class="text-slate-500">We can't wait to help you get your time back! First, we'll get a bit
                             of information about
                             your home so we can best estimate the time it will take to clean it properly. Please fill
                             out the form below and we will be in contact within 48 hours to go over the estimated time
@@ -233,286 +296,432 @@
                             products for an additional fee of 20 euros. We are looking forward to help you.</p>
                     </div>
 
-                    <div class="bg-white space-y-4 p-9 rounded">
-                        <div class="space-y-1">
-                            <label class="text-slate-500" for="">* Name</label>
-                            <input class="outline-none border w-full p-2" placeholder="Enter your name" type="text">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-slate-500" for="">* Email</label>
-                            <input class="outline-none border w-full p-2" placeholder="Enter your email" type="text">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-slate-500" for="">Phone Number</label>
-                            <input class="outline-none border w-full p-2" placeholder="Enter your phone number"
-                                type="text">
-                        </div>
-
-                        <div class="text-slate-500">Service Address</div>
-                        <div class="space-y-1">
-                            <label class="text-slate-500" for="">Address Line 1</label>
-                            <input class="outline-none border w-full p-2" placeholder="Street 1" type="text">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-slate-500" for="">Address Line 2</label>
-                            <input class="outline-none border w-full p-2" placeholder="Street 2" type="text">
-                        </div>
-
-                        <div class="grid md:grid-cols-3 gap-3">
+                    <div class="bg-white space-y-5 md:p-12 rounded">
+                        <form class="space-y-4" id="bookingForm" action="#" method="">
                             <div class="space-y-1">
-                                <label class="text-slate-500" for="">City / Town</label>
-                                <input class="outline-none border w-full p-2" placeholder="City" type="text">
+                                <label class="text-slate-500" for="">* Name</label>
+                                <input class="outline-none border w-full p-2" placeholder="Voer uw naam in" type="text"
+                                    name="name" required>
                             </div>
                             <div class="space-y-1">
-                                <label class="text-slate-500" for="">State / Region</label>
-                                <input class="outline-none border w-full p-2" placeholder="State" type="text">
+                                <label class="text-slate-500" for="">* Email</label>
+                                <input class="outline-none border w-full p-2" placeholder="Voer uw e-mailadres in"
+                                    type="email" name="email" required>
                             </div>
                             <div class="space-y-1">
-                                <label class="text-slate-500" for="">ZIP / Postal code</label>
-                                <input class="outline-none border w-full p-2" placeholder="ZIP / Postal code"
-                                    type="text">
+                                <label class="text-slate-500" for="">Phone Number</label>
+                                <input class="outline-none border w-full p-2" placeholder="Voer uw telefoonnummer in"
+                                    type="tel" name="phone" required>
                             </div>
-                        </div>
 
-                        <div class="text-lg font-medium text-slate-400">Pick a date and time for the appointment</div>
-
-
-                        <div class="datepicker-container">
-                            <!-- <label for="datepicker">Pick a date and time for the appointment</label> -->
-                            <input type="text" id="datepicker" placeholder="Pick a date">
-                        </div>
-
-                        <ol>
-                            <li class="" data-intercept="0" data-slope="0">
-                                <label class="relative date-label">
-                                    <input class="invisible absolute left-0" type="radio" name="time-option"
-                                        data-price="" data-price-factor="">
-                                    <div
-                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
-                                        First available</div>
-                                </label>
-                            </li>
-                        </ol>
-
-                        <div class="text-lg font-medium text-slate-400">When was the property last professionally
-                            cleaned?</div>
-                        <ol class="space-y-2">
-                            <li class="" data-intercept="0" data-slope="0">
-                                <label class="relative date-label">
-                                    <input class="invisible absolute left-0" type="radio" name="professionally-clean"
-                                        data-price="" data-price-factor="">
-                                    <div
-                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
-                                        A few days ago</div>
-                                </label>
-                            </li>
-                            <li class="" data-intercept="0" data-slope="0">
-                                <label class="relative date-label">
-                                    <input class="invisible absolute left-0" type="radio" name="professionally-clean"
-                                        data-price="" data-price-factor="">
-                                    <div
-                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
-                                        Less than a month ago</div>
-                                </label>
-                            </li>
-                            <li class="" data-intercept="0" data-slope="0">
-                                <label class="relative date-label">
-                                    <input class="invisible absolute left-0" type="radio" name="professionally-clean"
-                                        data-price="" data-price-factor="">
-                                    <div
-                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
-                                        Less than 3 months ago</div>
-                                </label>
-                            </li>
-                            <li class="" data-intercept="0" data-slope="0">
-                                <label class="relative date-label">
-                                    <input class="invisible absolute left-0" type="radio" name="professionally-clean"
-                                        data-price="" data-price-factor="">
-                                    <div
-                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
-                                        Less than 6 months ago</div>
-                                </label>
-                            </li>
-                            <li class="" data-intercept="0" data-slope="0">
-                                <label class="relative date-label">
-                                    <input class="invisible absolute left-0" type="radio" name="professionally-clean"
-                                        data-price="" data-price-factor="">
-                                    <div
-                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
-                                        More than 6 months ago or never</div>
-                                </label>
-                            </li>
-                        </ol>
-
-
-                        <h2>How large is the property?</h2>
-                        <div class="range-container">
-                            <input type="range" value="100" id="property" min="0" max="1000" />
-                            <label for="range">about 30 sqm</label>
-
-                            <div class="flex justify-between text-slate-500">
-                                <div>30</div>
-                                <div>100</div>
-                                <div>200</div>
-                                <div>400</div>
-                                <div>1000</div>
+                            <div class="text-slate-500">Service Address</div>
+                            <div class="space-y-1">
+                                <label class="text-slate-500" for="">Address Line 1</label>
+                                <input class="outline-none border w-full p-2" placeholder="Street 1" type="text"
+                                    name="address1" required>
                             </div>
-                        </div>
-
-                        <h2>How many bedrooms should be cleaned?</h2>
-                        <div class="range-container">
-                            <input type="range" value="100" id="bedrooms" min="0" max="1000" />
-                            <label for="range">about 30 sqm</label>
-
-                            <div class="flex justify-between text-slate-500">
-                                <div>30</div>
-                                <div>100</div>
-                                <div>200</div>
-                                <div>400</div>
-                                <div>1000</div>
+                            <div class="space-y-1">
+                                <label class="text-slate-500" for="">Address Line 2</label>
+                                <input class="outline-none border w-full p-2" placeholder="Street 2" type="text"
+                                    name="address2" required>
                             </div>
-                        </div>
 
-
-                        <h2>How many bathrooms should be cleaned?</h2>
-                        <div class="range-container">
-                            <input type="range" value="100" id="bathrooms " min="0" max="1000" />
-                            <label for="range">about 30 sqm</label>
-
-                            <div class="flex justify-between text-slate-500">
-                                <div>30</div>
-                                <div>100</div>
-                                <div>200</div>
-                                <div>400</div>
-                                <div>1000</div>
-                            </div>
-                        </div>
-
-                        <div>Count bathrooms with only a toilet and sink as a half bathroom</div>
-
-
-                        <div class="text-lg font-medium text-slate-400">Choose your cleaning schedule</div>
-                        <ol class="flex flex-wrap items-center gap-3">
-                            <li class="" data-intercept="0" data-slope="0">
-                                <label class="relative date-label">
-                                    <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
-                                        data-price="" data-price-factor="">
-                                    <div
-                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
-                                        one time</div>
-                                </label>
-                            </li>
-                            <li class="" data-intercept="0" data-slope="0">
-                                <label class="relative date-label">
-                                    <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
-                                        data-price="" data-price-factor="">
-                                    <div
-                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
-
-                                        weekly</div>
-                                </label>
-                            </li>
-                            <li class="" data-intercept="0" data-slope="0">
-                                <label class="relative date-label">
-                                    <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
-                                        data-price="" data-price-factor="">
-                                    <div
-                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
-                                        every 2 weeks
-                                    </div>
-                                </label>
-                            </li>
-                            <li class="" data-intercept="0" data-slope="0">
-                                <label class="relative date-label">
-                                    <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
-                                        data-price="" data-price-factor="">
-                                    <div
-                                        class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
-                                        every 3 weeks</div>
-                                </label>
-                            </li>
-                        </ol>
-
-
-
-                        <h2>How many man hours would you like to book?</h2>
-                        <div class="range-container">
-                            <input type="range" value="100" id="bathrooms " min="0" max="1000" />
-                            <label for="range">about 30 sqm</label>
-
-                            <div class="flex justify-between text-slate-500">
-                                <div>30</div>
-                                <div>100</div>
-                                <div>200</div>
-                                <div>400</div>
-                                <div>1000</div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="text-2xl font-medium">Service Options and Pricing Details</div>
-                        <p class="text-slate-500">WE KINDLY INFORM YOU THAT THE LISTED PRICE IS FOR OUR STANDARD
-                            CLEANING SERVICE. IF YOU
-                            REQUIRE ADDITIONAL SERVICES SUCH AS DEEP CLEANING OR MOVE-IN/OUT CLEANING, PLEASE SELECT THE
-                            APPROPRIATE EXTRA SERVICES AND SPECIFY THE TYPE OF CLEANING NEEDED BELOW.
-                        </p>
-
-
-                        <div>Pick additional services below</div>
-
-
-
-                        <ul class="flex flex-wrap gap-10">
-                            <li class="image-checkboxes">
-                                <input class="hidden" type="checkbox" name="booking" id="extra-cb-94354" value="94354"
-                                    data-price="3000" data-price-factor="1">
-                                <label for="extra-cb-94354"><img
-                                        src="accets/images/instruction_icon_inside_cabinets-f894dc683b116b573e11f68033cd9b58b623d0bf5f1749b407cd4218f8c21562.png"></label>
-                                <div>
-                                    <div>Inside cabinets ( up to 6 doors )</div>
-                                    <div>€30,0.0</div>
+                            <div class="grid md:grid-cols-3 gap-3">
+                                <div class="space-y-1">
+                                    <label class="text-slate-500" for="">City / Town</label>
+                                    <input class="outline-none border w-full p-2" placeholder="City" type="text"
+                                        name="city" required>
                                 </div>
-                            </li>
-                            <li>
-                                <input class="hidden" type="checkbox" name="booking" id="extra-cb-94354" value="94354"
-                                    data-price="3000" data-price-factor="1">
-                                <label for="extra-cb-94354"><img
-                                        src="accets/images/instruction_icon_window_cleaning-980e62295635b02058105e2a39c3760c567df0eb67cccf444a5b75ecf760203a.png"></label>
-                                <div>
-                                    <div>
-                                        Inside cabinets ( up to 6 doors ) €30,0.0
+                                <div class="space-y-1">
+                                    <label class="text-slate-500" for="">State / Region</label>
+                                    <input class="outline-none border w-full p-2" placeholder="State" type="text"
+                                        name="state" required>
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-slate-500" for="">ZIP / Postal code</label>
+                                    <input class="outline-none border w-full p-2" placeholder="ZIP / Postal code"
+                                        type="text" name="zip" required>
+                                </div>
+                            </div>
+
+                            <div class="text-lg font-medium text-slate-400">Pick a date and time for the appointment
+                            </div>
+
+
+                            <div class="datepicker-container">
+                                <!-- <label for="datepicker">Pick a date and time for the appointment</label> -->
+                                <input type="text" id="datepicker" placeholder="Pick a date" name="appointment_date"
+                                    required>
+                            </div>
+
+                            <ol>
+                                <li class="" data-intercept="0" data-slope="0">
+                                    <label class="relative date-label">
+                                        <input class="invisible absolute left-0" type="radio" name="time-option"
+                                            data-price="" data-price-factor="">
+                                        <div
+                                            class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                            First available</div>
+                                    </label>
+                                </li>
+                            </ol>
+
+                            <div class="text-lg font-medium text-slate-400">When was the property last professionally
+                                cleaned?</div>
+                            <ol class="space-y-2">
+                                <li class="" data-intercept="0" data-slope="0">
+                                    <label class="relative date-label">
+                                        <input class="invisible absolute left-0" type="radio"
+                                            name="professionally-clean" data-price="" data-price-factor="">
+                                        <div
+                                            class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                            A few days ago</div>
+                                    </label>
+                                </li>
+                                <li class="" data-intercept="0" data-slope="0">
+                                    <label class="relative date-label">
+                                        <input class="invisible absolute left-0" type="radio"
+                                            name="professionally-clean" data-price="" data-price-factor="">
+                                        <div
+                                            class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                            Less than a month ago</div>
+                                    </label>
+                                </li>
+                                <li class="" data-intercept="0" data-slope="0">
+                                    <label class="relative date-label">
+                                        <input class="invisible absolute left-0" type="radio"
+                                            name="professionally-clean" data-price="" data-price-factor="">
+                                        <div
+                                            class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                            Less than 3 months ago</div>
+                                    </label>
+                                </li>
+                                <li class="" data-intercept="0" data-slope="0">
+                                    <label class="relative date-label">
+                                        <input class="invisible absolute left-0" type="radio"
+                                            name="professionally-clean" data-price="" data-price-factor="">
+                                        <div
+                                            class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                            Less than 6 months ago</div>
+                                    </label>
+                                </li>
+                                <li class="" data-intercept="0" data-slope="0">
+                                    <label class="relative date-label">
+                                        <input class="invisible absolute left-0" type="radio"
+                                            name="professionally-clean" data-price="" data-price-factor="">
+                                        <div
+                                            class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                            More than 6 months ago or never</div>
+                                    </label>
+                                </li>
+                            </ol>
+
+
+                            <h2>How large is the property?</h2>
+                            <div class="flex items-center gap-10 my-20">
+                                <img src="accets/images/sqft_scale_icon_small-351687e1cd48ae38891b22084837f9173e8d7e906a2c6e6c7cf8b6dca040bc08.png"
+                                    alt="">
+                                <div class="range-container w-full">
+                                    <input type="range" id="property" value="120" min="30" max="1000"
+                                        name="property_size" />
+                                    <label for="range">about 120 sqm</label>
+
+                                    <div class="flex justify-between text-slate-500">
+                                        <div>30</div>
+                                        <div>100</div>
+                                        <div>200</div>
+                                        <div>400</div>
+                                        <div>1000</div>
                                     </div>
                                 </div>
-                            </li>
-                            <li>
-                                <input class="hidden" type="checkbox" name="booking" id="extra-cb-94354" value="94354"
-                                    data-price="3000" data-price-factor="1">
-                                <label for="extra-cb-94354"><img
-                                        src="accets/images/instruction_icon_ironing-d3826dd502df283ab4d34e4dee65fc818bc22d4132a067838eb116502049eec3.png"></label>
-                                <div>
-                                    <div>
-                                        Inside cabinets ( up to 6 doors ) €30,0.0
+                            </div>
+
+                            <h2>How many bedrooms should be cleaned?</h2>
+                            <div class="flex items-center gap-10 my-10">
+                                <img class="w-16"
+                                    src="accets/images/bedrooms_icon-e62e370543960d1473eacbf70a18945ad60c69679178fd8f7e5149878d8e836a.svg"
+                                    alt="">
+                                <div class="range-container w-full">
+                                    <input type="range" id="bedrooms" value="1" min="0" max="6" name="bedrooms" />
+                                    <label for="range">Bedrooms: <span class="slider-value">1</span></label>
+                                    <div class="flex justify-between text-slate-500">
+                                        <div>0</div>
+                                        <div>1</div>
+                                        <div>2</div>
+                                        <div>3</div>
+                                        <div>4</div>
+                                        <div>5</div>
+                                        <div>6</div>
                                     </div>
                                 </div>
-                            </li>
-                        </ul>
+                            </div>
 
 
-                        <label for="">Do you have any further special requests?</label>
-                        <textarea class="outline-none border w-full p-2" rows="4" name="" id=""></textarea>
+
+                            <h2>How many bathrooms should be cleaned?</h2>
+                            <div class="flex items-center gap-10 my-10">
+                                <img class="w-16"
+                                    src="accets/images/bathrooms_icon-f9629910bc62c9302a0bf70438bb97bac1441774a88a6294fa4ae5b27086834e.svg"
+                                    alt="">
+                                <div class="range-container w-full">
+                                    <input type="range" id="bathrooms" value="1" min="0" max="6" name="bathrooms" />
+                                    <label for="range">Bathrooms: <span class="slider-value">1</span></label>
+                                    <div class="flex justify-between text-slate-500">
+                                        <div>0</div>
+                                        <div>1</div>
+                                        <div>2</div>
+                                        <div>3</div>
+                                        <div>4</div>
+                                        <div>5</div>
+                                        <div>6</div>
+                                    </div>
+                                </div>
+                            </div>
 
 
-                        <label for="">What areas of your home brings you the most stress? What is your decorating style-
-                            minimalist or more of a collector?
-                        </label>
-                        <textarea class="outline-none border w-full p-2" rows="4" name="" id=""></textarea>
+                            <div>Count bathrooms with only a toilet and sink as a half bathroom</div>
 
-                        <button
-                            class="bg-gradient-to-r from-[#0095c4] to-[#009867] hover:from-[#009867] hover:to-[#0095c4] text-white uppercase w-full rounded lg:px-7 lg:py-3">Book
-                            now</button>
 
+                            <div class="text-lg font-medium text-slate-400">Choose your cleaning schedule</div>
+                            <ol class="flex flex-wrap items-center gap-3">
+                                <li class="" data-intercept="0" data-slope="0">
+                                    <label class="relative date-label">
+                                        <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
+                                            data-price="" data-price-factor="">
+                                        <div
+                                            class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                            one time</div>
+                                    </label>
+                                </li>
+                                <li class="" data-intercept="0" data-slope="0">
+                                    <label class="relative date-label">
+                                        <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
+                                            data-price="" data-price-factor="">
+                                        <div
+                                            class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                            weekly</div>
+                                    </label>
+                                </li>
+                                <li class="" data-intercept="0" data-slope="0">
+                                    <label class="relative date-label">
+                                        <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
+                                            data-price="" data-price-factor="">
+                                        <div
+                                            class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                            every 2 weeks
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="" data-intercept="0" data-slope="0">
+                                    <label class="relative date-label">
+                                        <input class="invisible absolute left-0" type="radio" name="cleaning-schedule"
+                                            data-price="" data-price-factor="">
+                                        <div
+                                            class="border border-slate-400 text-center p-2 text-slate-400 cursor-pointer rounded-md hover:text-black hover:border-black">
+                                            every 3 weeks</div>
+                                    </label>
+                                </li>
+                            </ol>
+
+
+
+                            <h2>How many man hours would you like to book?</h2>
+                            <div class="flex items-center gap-10 my-10">
+                                <img class="w-16"
+                                    src="accets/images/man_hours_widget_icon-82d8b63b2a96fa2a897a52d29ecdb8ae9e7e853b9b1394d73b3643abbe77aa3c.png"
+                                    alt="">
+                                <div class="range-container w-full">
+                                    <input type="range" id="man-hours" value="2" min="2" max="12" name="man_hours" />
+                                    <label for="range">Hours: <span class="slider-value">2</span></label>
+                                    <div class="flex justify-between text-slate-500">
+                                        <div>2</div>
+                                        <div>4</div>
+                                        <div>6</div>
+                                        <div>8</div>
+                                        <div>10</div>
+                                        <div>12</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="text-2xl font-medium">Service Options and Pricing Details</div>
+                            <p class="text-slate-500">WE KINDLY INFORM YOU THAT THE LISTED PRICE IS FOR OUR STANDARD
+                                CLEANING SERVICE. IF YOU
+                                REQUIRE ADDITIONAL SERVICES SUCH AS DEEP CLEANING OR MOVE-IN/OUT CLEANING, PLEASE SELECT
+                                THE
+                                APPROPRIATE EXTRA SERVICES AND SPECIFY THE TYPE OF CLEANING NEEDED BELOW.
+                            </p>
+
+
+                            <div>Pick additional services below</div>
+
+
+
+                            <ul class="grid grid-cols-4 gap-10">
+                                <li class="image-checkboxes">
+                                    <input class="hidden" type="checkbox" name="booking" id="extra-cb-1" value="94354"
+                                        data-price="3000" data-price-factor="1">
+                                    <label for="extra-cb-1" class="cursor-pointer">
+                                        <div class="additional-services">
+                                            <img
+                                                src="accets/images/instruction_icon_inside_cabinets-f894dc683b116b573e11f68033cd9b58b623d0bf5f1749b407cd4218f8c21562.png">
+                                            <div class="text-xs text-center">
+                                                <div>Inside cabinets (up to 6 doors)</div>
+                                                <div>€30,00</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="image-checkboxes">
+                                    <input class="hidden" type="checkbox" name="booking" id="extra-cb-2" value="94355"
+                                        data-price="4000" data-price-factor="1">
+                                    <label for="extra-cb-2" class="cursor-pointer">
+                                        <div class="additional-services">
+                                            <img
+                                                src="accets/images/instruction_icon_window_cleaning-980e62295635b02058105e2a39c3760c567df0eb67cccf444a5b75ecf760203a.png">
+                                            <div class="text-xs text-center">
+                                                <div>Window cleaning</div>
+                                                <div>€40,00</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="image-checkboxes">
+                                    <input class="hidden" type="checkbox" name="booking" id="extra-cb-3" value="94356"
+                                        data-price="2500" data-price-factor="1">
+                                    <label for="extra-cb-3" class="cursor-pointer">
+                                        <div class="additional-services">
+                                            <img
+                                                src="accets/images/instruction_icon_ironing-d3826dd502df283ab4d34e4dee65fc818bc22d4132a067838eb116502049eec3.png">
+                                            <div class="text-xs text-center">
+                                                <div>Ironing service</div>
+                                                <div>€25,00</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="image-checkboxes">
+                                    <input class="hidden" type="checkbox" name="booking" id="extra-cb-4" value="94357"
+                                        data-price="2000" data-price-factor="1">
+                                    <label for="extra-cb-4" class="cursor-pointer">
+                                        <div class="additional-services">
+                                            <img
+                                                src="accets/images/instruction_icon_fridge_cleaning-ff550496d875b4efaa9bcae7610bde400bcaced8b989afb7b9f6866e3813551a.png">
+                                            <div class="text-xs text-center">
+                                                <div>Fridge</div>
+                                                <div>€20,00</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="image-checkboxes">
+                                    <input class="hidden" type="checkbox" name="booking" id="extra-cb-5" value="94358"
+                                        data-price="0" data-price-factor="1">
+                                    <label for="extra-cb-5" class="cursor-pointer">
+                                        <div class="additional-services">
+                                            <img
+                                                src="accets/images/instruction_icon_move_in_out_cleaning-88cf751ca409909bc516a78a1bc258eda439859ce73eaedf31370bd7c58b44ec.png">
+                                            <div class="text-xs text-center">
+                                                <div>Move In/Out</div>
+                                                <!-- <div>€20,00</div> -->
+                                            </div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="image-checkboxes">
+                                    <input class="hidden" type="checkbox" name="booking" id="extra-cb-6" value="94359"
+                                        data-price="2000" data-price-factor="1">
+                                    <label for="extra-cb-6" class="cursor-pointer">
+                                        <div class="additional-services">
+                                            <img
+                                                src="accets/images/instruction_icon_oven_cleaning-6c3eebae4b28ddc28d88e40428ea45a92a03a05f2223153946fa9eecebde6526.png">
+                                            <div class="text-xs text-center">
+                                                <div>Oven</div>
+                                                <div>€20,00</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="image-checkboxes">
+                                    <input class="hidden" type="checkbox" name="booking" id="extra-cb-7" value="94360"
+                                        data-price="0" data-price-factor="1">
+                                    <label for="extra-cb-7" class="cursor-pointer">
+                                        <div class="additional-services">
+                                            <img
+                                                src="accets/images/instruction_icon_deep_cleaning-0b69cb8a5a57061fa097853486eba1b773116a46d16839e914157addcadc29b4.png">
+                                            <div class="text-xs text-center">
+                                                <div>Deep Cleaning</div>
+                                                <!-- <div>€20,00</div> -->
+                                            </div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="image-checkboxes">
+                                    <input class="hidden" type="checkbox" name="booking" id="extra-cb-8" value="94360"
+                                        data-price="2000" data-price-factor="1">
+                                    <label for="extra-cb-8" class="cursor-pointer">
+                                        <div class="additional-services">
+                                            <img
+                                                src="accets/images/instruction_icon_dishes-0d81fffebfc2e38149d75a86beb0b16a8a5e362bc83287e90d59c20001200e64.png">
+                                            <div class="text-xs text-center">
+                                                <div>Dishes</div>
+                                                <div>€20,00</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="image-checkboxes">
+                                    <input class="hidden" type="checkbox" name="booking" id="extra-cb-9" value="94361"
+                                        data-price="2000" data-price-factor="1">
+                                    <label for="extra-cb-9" class="cursor-pointer">
+                                        <div class="additional-services">
+                                            <img
+                                                src="accets/images/instruction_icon_cleaning_supplies-6c9d80cf8d70fc2c05d286fd856b36676a45b4b361954dd5431a5c56cb09cfb5.png">
+                                            <div class="text-xs text-center">
+                                                <div>Cleaning Supplies ( not include vaccum cleaner/mop/bucket )</div>
+                                                <div>€20,00</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="image-checkboxes">
+                                    <input class="hidden" type="checkbox" name="booking" id="extra-cb-10" value="94362"
+                                        data-price="5000" data-price-factor="1">
+                                    <label for="extra-cb-10" class="cursor-pointer">
+                                        <div class="additional-services">
+                                            <img
+                                                src="accets/images/instruction_icon_post_construction-9c3a677c70359b733082f248402fd472255b98a8043bd69326bddbde839620b1.png">
+                                            <div class="text-xs text-center">
+                                                <div>Pos Construction</div>
+                                                <div>€50,00</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+
+
+                            <label for="">Do you have any further special requests?</label>
+                            <textarea class="outline-none border w-full p-2" rows="4" name="special_requests" id=""
+                                required></textarea>
+
+
+                            <label for="">What areas of your home brings you the most stress? What is your decorating
+                                style-
+                                minimalist or more of a collector?
+                            </label>
+                            <textarea class="outline-none border w-full p-2" rows="4" name="decorating_style" id=""
+                                required></textarea>
+
+                            <button id="submitBtn" type="submit"
+                                class="bg-gradient-to-r from-[#0095c4] to-[#009867] hover:from-[#009867] hover:to-[#0095c4] text-white uppercase w-full rounded lg:px-7 lg:py-3"
+                                disabled>Book now</button>
+
+                        </form>
                     </div>
                 </div>
                 <div class="md:col-span-2 lg:px-8 space-y-5">
@@ -544,18 +753,69 @@
                     <div class="bg-white p-6 space-y-3 sticky top-[10PX]">
                         <div class="text-lg">Your Cleaning Summary</div>
                         <div class="text-slate-500">Service Details</div>
-                        <p class="text-slate-400"><i class="ri-brush-fill text-blue-400"></i> 1 Bedrooms 1 Bathrooms,
-                            120 Square Meters, 3 Man Hours</p>
+                        <div id="dynamic-summary" class="hidden space-y-2">
+                            <div class="summary-item" data-field="name">
+                                <p class="text-slate-400"><i class="ri-user-fill text-blue-400"></i> <span
+                                        id="summary-name"></span></p>
+                            </div>
+                            <div class="summary-item" data-field="email">
+                                <p class="text-slate-400"><i class="ri-mail-fill text-blue-400"></i> <span
+                                        id="summary-email"></span></p>
+                            </div>
+                            <div class="summary-item" data-field="phone">
+                                <p class="text-slate-400"><i class="ri-phone-fill text-blue-400"></i> <span
+                                        id="summary-phone"></span></p>
+                            </div>
+                            <div class="summary-item" data-field="address">
+                                <p class="text-slate-400"><i class="ri-map-pin-fill text-blue-400"></i> <span
+                                        id="summary-address"></span></p>
+                            </div>
+                            <div class="summary-item" data-field="date">
+                                <p class="text-slate-400"><i class="ri-calendar-fill text-blue-400"></i> <span
+                                        id="summary-date"></span></p>
+                            </div>
+                            <div class="summary-item" data-field="property">
+                                <p class="text-slate-400"><i class="ri-home-gear-fill text-blue-400"></i>
+                                    <span id="summary-bedrooms"></span> Bedrooms,
+                                    <span id="summary-bathrooms"></span> Bathrooms,
+                                    <span id="summary-property"></span> m²
+                                </p>
+                            </div>
+                            <div class="summary-item" data-field="schedule">
+                                <p class="text-slate-400"><i class="ri-time-fill text-blue-400"></i>
+                                    <span id="summary-schedule"></span> cleaning,
+                                    <span id="summary-hours"></span> man-hours
+                                </p>
+                            </div>
+                            <div class="summary-item" data-field="extras">
+                                <p class="text-slate-400"><i class="ri-checkbox-multiple-fill text-blue-400"></i>
+                                    Extra services: <span id="summary-extras"></span>
+                                </p>
+                            </div>
+                            <div class="summary-item" data-field="requests">
+                                <p class="text-slate-400"><i class="ri-chat-quote-fill text-blue-400"></i>
+                                    Special requests: <span id="summary-requests"></span>
+                                </p>
+                            </div>
+                        </div>
 
                         <div class="text-lg">Price Estimate</div>
 
+                        <!-- <div class="flex justify-between">
+                            <div class="text-slate-400">Base Service:</div>
+                            <div class="font-semibold text-slate-700">€<span id="base-price">84</span>,00</div>
+                        </div> -->
                         <div class="flex justify-between">
-                            <div class="text-slate-400">Service:</div>
-                            <div class="font-semibold text-slate-700">€84,00</div>
+                            <div class="text-slate-400">Extra Services:</div>
+                            <div class="font-semibold text-slate-700">€<span id="extra-price">0</span>,00</div>
                         </div>
                         <div class="flex justify-between">
-                            <div class="text-slate-400">Total:</div>
-                            <div class="font-semibold text-slate-700">€84,00</div>
+                            <div class="text-slate-400">Man Hours:</div>
+                            <div class="font-semibold text-slate-700">€<span id="man-hours-price">0</span>,00</div>
+                        </div>
+                        <div class="flex justify-between border-t pt-2">
+                            <div class="text-slate-400 font-medium">Total:</div>
+                            <div class="font-bold text-slate-800">€<span id="total-price">84</span>,00</div>
                         </div>
 
                         <button
@@ -626,10 +886,11 @@
                 minDate: 0,
                 beforeShowDay: function (date) {
                     let day = date.getDay();
-                    return [day !== 0, ""]; // Disable Sundays
+                    return [day !== 0, ""];
                 },
             }).datepicker("show");;
         });
+
 
         const property = document.querySelector("#property");
 
@@ -668,7 +929,7 @@
             const left = value * (numRangeWidth / max) - numLabelWidth / 2;
 
             label.style.left = `${left}px`;
-            label.innerText = `about ${value} sqm`;
+            label.innerText = `bedrooms: ${value}`;
         });
 
 
@@ -688,12 +949,159 @@
             const left = value * (numRangeWidth / max) - numLabelWidth / 2;
 
             label.style.left = `${left}px`;
-            label.innerText = `about ${value} sqm`;
+            label.innerText = `bathrooms ${value}`;
         });
 
+        const manhours = document.querySelector("#man-hours");
 
+        manhours.addEventListener("input", (e) => {
+            const value = +e.target.value;
+            const label = e.target.nextElementSibling;
 
+            const rangeWidth = getComputedStyle(e.target).getPropertyValue("width");
+            const labelWidth = getComputedStyle(label).getPropertyValue("width");
+            const numRangeWidth = +rangeWidth.slice(0, rangeWidth.length - 2);
+            const numLabelWidth = +labelWidth.slice(0, labelWidth.length - 2);
 
+            const max = +e.target.max;
+
+            const left = value * (numRangeWidth / max) - numLabelWidth / 2;
+
+            label.style.left = `${left}px`;
+            label.innerText = `Hours: ${value}`;
+        });
+
+        function updateSummary() {
+            const toggleItem = (selector, condition) => {
+                const element = document.querySelector(selector);
+                element.style.display = condition ? 'block' : 'none';
+            };
+
+            const nameValue = document.querySelector('input[placeholder="Enter your name"]').value.trim();
+            document.getElementById('summary-name').textContent = nameValue;
+            toggleItem('[data-field="name"]', nameValue !== '');
+
+            const emailValue = document.querySelector('input[placeholder="Enter your email"]').value.trim();
+            document.getElementById('summary-email').textContent = emailValue;
+            toggleItem('[data-field="email"]', emailValue !== '');
+
+            const phoneValue = document.querySelector('input[placeholder="Enter your phone number"]').value.trim();
+            document.getElementById('summary-phone').textContent = phoneValue;
+            toggleItem('[data-field="phone"]', phoneValue !== '');
+
+            const addressParts = [
+                document.querySelector('input[placeholder="Street 1"]').value,
+                document.querySelector('input[placeholder="Street 2"]').value,
+                document.querySelector('input[placeholder="City"]').value,
+                document.querySelector('input[placeholder="State"]').value,
+                document.querySelector('input[placeholder="ZIP / Postal code"]').value
+            ].filter(part => part.trim() !== '');
+            const hasAddress = addressParts.length > 0;
+            document.getElementById('summary-address').textContent = addressParts.join(', ');
+            toggleItem('[data-field="address"]', hasAddress);
+
+            const dateValue = document.getElementById('datepicker').value;
+            document.getElementById('summary-date').textContent = dateValue;
+            toggleItem('[data-field="date"]', dateValue !== '');
+
+            const bedroomsValue = document.getElementById('bedrooms').value;
+            const bathroomsValue = document.getElementById('bathrooms').value;
+            const propertyValue = document.getElementById('property').value;
+            const hasPropertyDetails = bedroomsValue > 0 || bathroomsValue > 0 || propertyValue > 0;
+            document.getElementById('summary-bedrooms').textContent = bedroomsValue;
+            document.getElementById('summary-bathrooms').textContent = bathroomsValue;
+            document.getElementById('summary-property').textContent = propertyValue;
+            toggleItem('[data-field="property"]', hasPropertyDetails);
+
+            const schedule = document.querySelector('input[name="cleaning-schedule"]:checked');
+            const scheduleValue = schedule ? schedule.closest('label').querySelector('div').textContent.trim() : '';
+            const hoursValue = document.getElementById('man-hours').value;
+            const hasSchedule = scheduleValue !== '' || hoursValue > 0;
+            document.getElementById('summary-schedule').textContent = scheduleValue;
+            document.getElementById('summary-hours').textContent = hoursValue;
+            toggleItem('[data-field="schedule"]', hasSchedule);
+
+            const extras = Array.from(document.querySelectorAll('input[name="booking"]:checked'))
+                .map(checkbox => checkbox.closest('li').querySelector('div > div').textContent.trim().split('€')[0]);
+            const hasExtras = extras.length > 0;
+            document.getElementById('summary-extras').textContent = extras.join(', ');
+            toggleItem('[data-field="extras"]', hasExtras);
+
+            const requests = Array.from(document.querySelectorAll('textarea'))
+                .map(textarea => textarea.value.trim())
+                .filter(text => text !== '');
+            const hasRequests = requests.length > 0;
+            document.getElementById('summary-requests').textContent = requests.join(', ');
+            toggleItem('[data-field="requests"]', hasRequests);
+
+            const hasAnyData = Array.from(document.querySelectorAll('.summary-item'))
+                .some(item => item.style.display === 'block');
+            document.getElementById('dynamic-summary').classList.toggle('hidden', !hasAnyData);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('input, textarea, select').forEach(element => {
+                element.addEventListener('input', updateSummary);
+                element.addEventListener('change', updateSummary);
+            });
+
+            $("#datepicker").datepicker({
+                dateFormat: "MM dd, yy",
+                minDate: 0,
+                beforeShowDay: function (date) {
+                    return [date.getDay() !== 0, ""];
+                }
+            }).on('change', updateSummary);
+
+            function initRangeSlider(selector) {
+                const input = document.querySelector(selector);
+                const valueDisplay = input.nextElementSibling.querySelector('.slider-value');
+
+                input.addEventListener('input', (e) => {
+                    const label = e.target.nextElementSibling;
+                    const value = e.target.value;
+
+                    // valueDisplay.textContent = value;
+
+                    const rangeWidth = parseFloat(getComputedStyle(e.target).width);
+                    const max = parseFloat(e.target.max);
+                    const left = (value / max) * (rangeWidth - 20);
+
+                    label.style.left = `${left}px`;
+                });
+
+                valueDisplay.textContent = input.value;
+            }
+
+            initRangeSlider('#property');
+            initRangeSlider('#bedrooms');
+            initRangeSlider('#bathrooms');
+            initRangeSlider('#man-hours');
+
+            updateSummary();
+        });
+
+        function calculatePrices() {
+            let extraTotal = 0;
+            const manHours = Math.max(2, parseInt(document.getElementById('man-hours').value) || 3);
+            const manHoursCost = manHours * 28; // Base price is now calculated from man hours
+
+            // Calculate extra services total
+            document.querySelectorAll('input[name="booking"]:checked').forEach(checkbox => {
+                extraTotal += parseInt(checkbox.dataset.price) / 100; // Convert cents to euros
+            });
+
+            document.getElementById('extra-price').textContent = extraTotal;
+            document.getElementById('man-hours-price').textContent = manHoursCost;
+            document.getElementById('total-price').textContent = manHoursCost + extraTotal;
+        }
+
+        document.getElementById('man-hours').addEventListener('input', calculatePrices);
+        document.querySelectorAll('input[name="booking"]').forEach(checkbox => {
+            checkbox.addEventListener('change', calculatePrices);
+        });
+
+        calculatePrices();
     </script>
 
 </body>
